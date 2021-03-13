@@ -20,7 +20,7 @@ namespace SignalRChat
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddSignalR();
+            services.AddSignalR().AddStackExchangeRedis("<your_Redis_connection_string>");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +48,7 @@ namespace SignalRChat
             {
                 endpoints.MapRazorPages();
                 endpoints.MapHub<ChatHub>("/chathub");
-            });
+            });            
         }
     }
 }
